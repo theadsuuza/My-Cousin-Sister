@@ -1,0 +1,14 @@
+---
+---
+// Jekyll compiles this file to /assets/css/main.css at build time.
+// All styling lives in SCSS partials — the repository never contains a .css file.
+
+@import "variables";
+@import "base";
+@import "components";
+@import "nav";
+@import "hero";
+@import "sections";
+@import "wait";
+@import "animations";
+@import "responsive";
