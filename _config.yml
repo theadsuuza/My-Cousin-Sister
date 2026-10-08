@@ -1,0 +1,23 @@
+title: My Cousin Sister
+description: >-
+  My Cousin Sister (2020) — Hindi, 18+ Uncut, 1080p WEB-DL (Enhanced).
+  Starring Ayesha Kapoor, Divyanshu Singh, Meeta Mitra and Anup Gahoi.
+
+# GitHub Pages friendly. Jekyll compiles assets/css/main.scss -> main.css at build time,
+# so no CSS file is ever committed to the repository.
+sass:
+  style: compressed
+  sass_dir: _sass
+  # Silences the "@import is deprecated" notice on Dart Sass (local preview).
+  # GitHub Pages' bundled Sass converter ignores unknown keys, so this is harmless there.
+  # @import is kept (rather than @use) because GitHub Pages still builds with libsass.
+  silence_deprecations:
+    - import
+
+exclude:
+  - docker-compose.base44.yml
+  - AGENTS.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .base44
