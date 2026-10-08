@@ -1,0 +1,42 @@
+// ============ Download wait screen ============
+
+.wait-body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.wait {
+  position: relative;
+  z-index: 1;
+  padding: 24px;
+
+  &__ring {
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 26px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.12);
+    border-top-color: $accent;
+    animation: waitSpin 0.9s linear infinite;
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    font-family: "Bebas Neue", "Inter", sans-serif;
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+
+  &__text {
+    margin: 0;
+    color: $muted;
+  }
+}
+
+@keyframes waitSpin {
+  to { transform: rotate(360deg); }
+}

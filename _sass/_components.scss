@@ -1,0 +1,95 @@
+// ============ Buttons, badges, section heads ============
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.5rem;
+  border: 1px solid $border;
+  border-radius: 999px;
+  background: $surface-2;
+  color: $text;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.35s $ease, box-shadow 0.35s $ease,
+              border-color 0.35s $ease, background 0.35s $ease;
+  will-change: transform;
+
+  &:hover { transform: translateY(-2px); }
+  &:active { transform: translateY(0) scale(0.98); }
+}
+
+.btn--primary {
+  background: linear-gradient(120deg, $accent, $accent-warm);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 12px 32px -12px rgba(255, 59, 59, 0.8);
+
+  &:hover { box-shadow: 0 20px 46px -14px rgba(255, 90, 60, 0.9); }
+}
+
+.btn--glass {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.btn--xl {
+  padding: 1.1rem 2.3rem;
+  font-size: 1.02rem;
+}
+
+// ---- Badges ----
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid $border;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.86);
+
+  &--age {
+    background: linear-gradient(120deg, $accent, $accent-warm);
+    border-color: transparent;
+    color: #fff;
+  }
+}
+
+// ---- Section heading ----
+.section__head {
+  margin-bottom: clamp(28px, 4vw, 48px);
+  text-align: center;
+
+  &--left { text-align: left; }
+}
+
+.section__kicker {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: $accent-warm;
+}
+
+.section__title {
+  margin: 0;
+  font-family: "Bebas Neue", "Inter", sans-serif;
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1;
+}

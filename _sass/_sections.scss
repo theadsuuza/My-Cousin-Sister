@@ -1,0 +1,363 @@
+// ============ Info grid ============
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  background: $border;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.4rem 1.5rem;
+    background: $bg-soft;
+    transition: background 0.35s $ease;
+
+    &:hover { background: $surface-2; }
+  }
+
+  &__k {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: $muted;
+  }
+
+  &__v {
+    font-size: 1.05rem;
+    font-weight: 600;
+
+    em {
+      font-style: normal;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $accent-warm;
+    }
+  }
+}
+
+// ============ Storyline ============
+
+.section--split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(28px, 5vw, 56px);
+  align-items: center;
+}
+
+.story {
+  &__text {
+    margin: 0;
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  &__art {
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid $border;
+    border-radius: $radius-lg;
+    box-shadow: 0 40px 80px -50px rgba(0, 0, 0, 0.9);
+
+    img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      transition: transform 0.9s $ease;
+    }
+
+    &:hover img { transform: scale(1.06); }
+  }
+}
+
+// ============ Cast ============
+
+.cast {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+
+  &__card {
+    padding: 1.8rem 1.2rem;
+    text-align: center;
+    border: 1px solid $border;
+    border-radius: $radius;
+    background: $surface;
+    transition: transform 0.4s $ease, border-color 0.4s $ease, background 0.4s $ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 138, 61, 0.5);
+      background: $surface-2;
+    }
+  }
+
+  &__avatar {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: linear-gradient(140deg, rgba(255, 59, 59, 0.9), rgba(255, 138, 61, 0.9));
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.06em;
+    color: #fff;
+  }
+
+  &__name {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  &__role {
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $muted;
+  }
+}
+
+// ============ Screenshots ============
+
+.shots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+
+.shot {
+  padding: 0;
+  border: 1px solid $border;
+  border-radius: $radius;
+  background: $bg-soft;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s $ease, border-color 0.4s $ease, box-shadow 0.4s $ease;
+
+  img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    transition: transform 0.8s $ease, filter 0.4s $ease;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 138, 61, 0.55);
+    box-shadow: 0 30px 60px -40px rgba(255, 80, 40, 0.9);
+
+    img { transform: scale(1.07); }
+  }
+
+  &--wide { grid-column: span 2; }
+}
+
+// ============ Trailer ============
+
+.trailer {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  background: #000;
+  box-shadow: 0 50px 90px -60px rgba(0, 0, 0, 1);
+  aspect-ratio: 16 / 9;
+
+  &__facade,
+  &__frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  &__facade {
+    padding: 0;
+    cursor: pointer;
+    background: #000;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.72;
+      transition: transform 0.9s $ease, opacity 0.4s $ease;
+    }
+
+    &:hover img { transform: scale(1.05); opacity: 0.9; }
+  }
+
+  &__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 84px;
+    height: 84px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: linear-gradient(120deg, $accent, $accent-warm);
+    box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.6);
+    animation: pulseRing 2.4s $ease-soft infinite;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: #fff;
+      margin-left: 4px;
+    }
+  }
+}
+
+// ============ Download ============
+
+.download {
+  &__card {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(36px, 6vw, 68px) clamp(22px, 5vw, 60px);
+    text-align: center;
+    border: 1px solid $border;
+    border-radius: $radius-lg;
+    background:
+      radial-gradient(120% 140% at 50% 0%, rgba(255, 59, 59, 0.16), transparent 60%),
+      $bg-soft;
+  }
+
+  &__glow {
+    position: absolute;
+    top: -60%;
+    left: 50%;
+    width: 420px;
+    height: 420px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(255, 138, 61, 0.35), transparent 65%);
+    filter: blur(30px);
+    pointer-events: none;
+  }
+
+  &__title {
+    margin: 0 0 0.6rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+
+  &__sub {
+    margin: 0 0 2rem;
+    color: $muted;
+    letter-spacing: 0.06em;
+  }
+
+  &__hint {
+    margin: 1.1rem 0 0;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    color: $muted;
+  }
+}
+
+// Download button with progress bar
+.dl {
+  min-width: 280px;
+
+  &.is-loading { cursor: progress; }
+
+  &__bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.28);
+
+    i {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+    }
+  }
+}
+
+// ============ Footer ============
+
+.foot {
+  padding: clamp(36px, 6vw, 64px) $gutter;
+  text-align: center;
+  border-top: 1px solid $border;
+  color: $muted;
+  font-size: 0.85rem;
+
+  p { margin: 0.2rem 0; }
+
+  &__note { opacity: 0.65; font-size: 0.78rem; }
+}
+
+// ============ Lightbox ============
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 48px);
+  background: rgba(4, 4, 7, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s $ease, visibility 0.35s $ease;
+
+  &.is-open { opacity: 1; visibility: visible; }
+
+  img {
+    max-width: min(1100px, 92vw);
+    max-height: 86vh;
+    border-radius: $radius;
+    box-shadow: 0 40px 100px -40px rgba(0, 0, 0, 1);
+    transform: scale(0.96);
+    transition: transform 0.35s $ease;
+  }
+
+  &.is-open img { transform: scale(1); }
+
+  &__close,
+  &__prev,
+  &__next {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid $border;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background 0.3s $ease, transform 0.3s $ease;
+
+    &:hover { background: rgba(255, 255, 255, 0.14); transform: scale(1.06); }
+  }
+
+  &__close { top: 20px; right: 20px; font-size: 1.6rem; }
+  &__prev { left: clamp(10px, 3vw, 34px); top: 50%; margin-top: -24px; }
+  &__next { right: clamp(10px, 3vw, 34px); top: 50%; margin-top: -24px; }
+}
